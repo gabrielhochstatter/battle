@@ -12,3 +12,17 @@ feature 'Players can see each HP' do
     expect(page).to have_content('playertwo HP: 50')
   end
 end
+
+feature 'Attacking' do
+  scenario 'attack player 2' do
+    sign_in_and_play
+    click_button 'Attack Player 2!'
+    expect(page).to have_content 'playerone attacked playertwo'
+  end
+
+  scenario 'attacking player 2 reduces hp by 10' do
+    sign_in_and_play
+    click_button 'Attack Player 2!'
+    expect(page).to have_content 'playertwo now has 40hp'
+  end
+end
