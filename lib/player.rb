@@ -14,5 +14,9 @@ def take_damage(amount)
   @hitpoints -= amount
 end
 
+def dead?
+  @hitpoints <= 0
+end
+
 
 end

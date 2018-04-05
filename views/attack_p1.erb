@@ -1,5 +1,5 @@
-<div><%= $game.player_one.name %> attacked <%= $game.player_two.name %></div>
-<div><%= $game.player_two.name %> now has <%= $game.player_two.hitpoints %>hp</div>
+<div><%= $game.player_two.name %> attacked <%= $game.player_one.name %></div>
+<div><%= $game.player_one.name %> now has <%= $game.player_one.hitpoints %>hp</div>
 <% if $game.won? %>
 <h2><%= $game.winner.name %> wins!</h2>
 <% else %>

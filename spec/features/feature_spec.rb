@@ -9,7 +9,8 @@ end
 feature 'Players can see each HP' do
   scenario 'players can see each others hitpoints' do
     sign_in_and_play
-    expect(page).to have_content('playertwo HP: 50')
+    expect(page).to have_content('playerone HP:')
+    expect(page).to have_content('playertwo HP:')
   end
 end
 
@@ -24,5 +25,18 @@ feature 'Attacking' do
     sign_in_and_play
     click_button 'Attack Player 2!'
     expect(page).to have_content 'playertwo now has 40hp'
+  end
+
+  scenario 'swapping turns' do
+    sign_in_and_play
+    click_button 'Attack Player 2!'
+    click_button 'Ok'
+    expect(page).to have_button('Attack Player 1!')
+  end
+
+  scenario 'one player wins' do
+    sign_in_and_play
+    play_game_to_end
+    expect(page).to have_content 'playerone wins!'
   end
 end
